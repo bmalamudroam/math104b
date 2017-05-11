@@ -24,6 +24,10 @@ int main ()
       cin >> A[i][j];
     }
   }
+  //
+  //
+  //
+  // get values in b[]
   double b[size];
   cout << "Enter b_i as in the following sample vector: " << endl;
   for (int i = 0; i < size; i++) {
@@ -33,6 +37,28 @@ int main ()
   for (int i = 0; i < size; i++) {
     cin >> b[i];
   }
-  
-  return 0;
-}
+  //
+  //
+  //
+  //lets try to implement this thang
+  for (int row = 0; row < size; row++)
+  {
+    if (A[row][0] == 0)
+    { 
+      for (int other_row = row + 1; other_row < size; other_row++)
+      {
+        if (A[other_row][0] != 0)
+        {
+          int* temp = A[other_row];
+          A[other_row] = A[row];
+          A[row] = A[temp];
+          break;
+        }
+      }
+    }
+    for (int column = 0; column < size; column++)
+    {
+      A[row][column] /= A[row][0];
+    }
+    for (int other_row = row + 1; other_row < size; other_row++)
+      {
