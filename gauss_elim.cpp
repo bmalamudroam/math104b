@@ -69,3 +69,10 @@ int main ()
           A[other_row][column] -= (A[row][column] * A[other_row][row]);
         }
       }
+    }
+    //
+    //
+    //back sub time
+    for (int row_index = size-1; row_index >= 0; row--)
+    {
+      
