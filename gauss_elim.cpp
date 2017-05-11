@@ -43,11 +43,11 @@ int main ()
   //lets try to implement this thang
   for (int row = 0; row < size; row++)
   {
-    if (A[row][0] == 0)
+    if (A[row][row] == 0)
     { 
       for (int other_row = row + 1; other_row < size; other_row++)
       {
-        if (A[other_row][0] != 0)
+        if (A[other_row][row] != 0)
         {
           int* temp = A[other_row];
           A[other_row] = A[row];
@@ -56,9 +56,16 @@ int main ()
         }
       }
     }
-    for (int column = 0; column < size; column++)
+    if (A[row][row] != 0) 
     {
-      A[row][column] /= A[row][0];
-    }
-    for (int other_row = row + 1; other_row < size; other_row++)
+      for (int column = 0; column < size; column++)
       {
+        A[row][column] /= A[row][row];
+      }
+      for (int other_row = row + 1; other_row < size; other_row++)
+      {
+        for (int column = row; column < size; column++)
+        {
+          A[other_row][column] -= (A[row][column] * A[other_row][row]);
+        }
+      }
