@@ -24,6 +24,15 @@ int main ()
       cin >> A[i][j];
     }
   }
-
+  double b[size];
+  cout << "Enter b_i as in the following sample vector: " << endl;
+  for (int i = 0; i < size; i++) {
+    cout << "b" << i <<" ";
+  }
+  cout << endl;
+  for (int i = 0; i < size; i++) {
+    cin >> b[i];
+  }
+  
   return 0;
 }
